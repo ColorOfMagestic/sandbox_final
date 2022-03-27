@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Песочница</title>
+    <meta name="description" content="" />
+
+    <link rel="icon" type="image/png" href="favicon/favicon.png" />
+<link rel="icon" href="favicon/favicon.svg" />
+
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+    <meta name="format-detection" content="telephone=no" />
+  </head>
+  <body>
+    <header class="header">
+  <div class="header__container container">
+    <div class="header__wrapper">
+      <button class="header__menu-toggle menu-toggle">
+        <span class="menu-toggle__icon"></span>
+      </button>
+      <div class="header__logo logo">
+        <picture>
+          <source
+            srcset="images/global/logo_d.png"
+            media="(min-width: 1024px)"
+            type="image/png"
+          />
+          <source
+            srcset="images/global/logo_m.png"
+            media="(min-width: 320px)"
+            type="image/png"
+          />
+          <img src="images/global/logo_d.png" alt="Логотип" />
+        </picture>
+      </div>
+      <nav class="header__nav">
+        <div class="header__nav-mobile__wrapper">
+          <button class="mobile-menu--close">
+            <span></span>
+            <span></span>
+          </button>
+          <img
+            class="mobile-menu--logo"
+            src="images/global/logo_m.png"
+            alt="Логотип"
+          />
+        </div>
+        <ul class="header__nav-list">
+          <li class="header__nav-list_item">
+            <a class="header__nav-list_item_link scroll" href="#about">О нас</a>
+          </li>
+          <li class="header__nav-list_item">
+            <a class="header__nav-list_item_link scroll" href="#partnership"
+              >Условия партнерства</a
+            >
+          </li>
+          <li class="header__nav-list_item">
+            <a class="header__nav-list_item_link scroll" href="#make-friends"
+              >Стать партнером</a
+            >
+          </li>
+          <li class="header__nav-list_item">
+            <a class="header__nav-list_item_link scroll" href="#feedback"
+              >Отзывы</a
+            >
+          </li>
+        </ul>
+        <div class="header__nav-social__wrapper">
+          <button
+            class="btn btn--primary btn--size-md"
+            data-modal-open="modal-form"
+          >
+            ОТПРАВИТЬ ЗАЯВКУ
+          </button>
+          <a href="tel:74959259042" class="header__nav-link">7 495 925-90-42</a>
+          <div class="social-group">
+            <a
+              href="https://api.whatsapp.com/send?phone=79223541841"
+              class="social social--size social--circle"
+              target="_blank"
+              ><svg class="icon">
+                <use xlink:href="svg-sprite/sprite.svg#wats"></use></svg
+            ></a>
+            <a
+              href="viber://pa?chatURI=pesochnicaperm"
+              class="social social--size social--circle"
+              target="_blank"
+              ><svg class="icon">
+                <use xlink:href="svg-sprite/sprite.svg#wb"></use></svg
+            ></a>
+            <a
+              href="https://www.instagram.com/mebel_pesochnica/"
+              class="social social--size social--circle"
+              target="_blank"
+              ><svg class="icon">
+                <use xlink:href="svg-sprite/sprite.svg#ig"></use></svg
+            ></a>
+          </div>
+        </div>
+      </nav>
+      <a href="tel:74959259042" class="header__link-mobile">7 495 925-90-42</a>
+    </div>
+  </div>
+</header>
+ <section id="intro" class="intro">
+  <div class="container">
+    <div class="wrapper">
+      <div class="intro__title-wrapper">
+        <h2 class="intro__title title title--size-md">
+          Станьте партнёром студии детской мебели «Песочница»
+        </h2>
+        <button
+          class="btn btn--primary btn--size-md wow fadeInLeft"
+          data-modal-open="modal-form"
+        >
+          ОТПРАВИТЬ ЗАЯВКУ
+        </button>
+      </div>
+      <div class="intro__video-wrapper">
+        <div class="intro__video-wrapper_container">
+          <div class="intro__video wow fadeInUp">
+            <button
+              class="btn btn--primary intro__video-btn"
+              data-modal-open="modal-video"
+            >
+              <span> </span>
+              <svg class="icon">
+                <use xlink:href="svg-sprite/sprite.svg#triangle"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="intro__features wow fadeInDown">
+      <div class="intro__features-list">
+        <div class="intro__features-list-item">
+          <h4 class="intro__features-list-item__title title--size-lg">
+            от 700.000
+          </h4>
+          <p class="intro__features-list-item__text text__size-md">
+            инвестиции
+          </p>
+        </div>
+        <div class="intro__features-list-item">
+          <h4 class="intro__features-list-item__title title--size-lg">
+            6-8 месяцев
+          </h4>
+          <p class="intro__features-list-item__text text__size-md">
+            окупаемость
+          </p>
+        </div>
+        <div class="intro__features-list-item">
+          <h4 class="intro__features-list-item__title title--size-lg">
+            от 700.000
+          </h4>
+          <p class="intro__features-list-item__text text__size-md">
+            чистая прибыль
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ <section id="about" class="about">
+  <div class="container">
+    <h2 class="about__title title title--size-lg wow fadeIn">О нас</h2>
+    <div class="about__wrapper grid">
+      <div class="about__wrapper-content col-6@lg wow fadeInUp">
+        <svg class="icon">
+          <use xlink:href="svg-sprite/sprite.svg#routing"></use>
+        </svg>
+        <h4 class="about__wrapper-content__title title--size-sm">
+          Четыре региона присутствия
+        </h4>
+        <p class="about__wrapper-content__text wow faweIn">
+          На сегодняшний день наша мебель представлена фирменными салонами в
+          Краснодаре, Москве, Санкт-Петербурге, Екатеринбурге и Перми.
+        </p>
+      </div>
+      <div class="about__wrapper-content col-6@lg wow fadeInUp">
+        <svg class="icon">
+          <use xlink:href="svg-sprite/sprite.svg#earth"></use>
+        </svg>
+        <h4 class="about__wrapper-content__title title--size-sm">
+          Наша мебель в 80 регионах
+        </h4>
+        <p class="about__wrapper-content__text wow faweIn">
+          Мы работаем и удаленно, поэтому наши заказчики есть практически в
+          каждом регионе страны. И в Калининграде, и на Сахалине
+        </p>
+      </div>
+      <div class="about__wrapper-content col-6@lg wow fadeInUp">
+        <svg class="icon">
+          <use xlink:href="svg-sprite/sprite.svg#pen"></use>
+        </svg>
+        <h4 class="about__wrapper-content__title title--size-sm">
+          Уникальный товар
+        </h4>
+        <p class="about__wrapper-content__text wow faweIn">
+          Заказчики идут к нам за дизайном и необычным, очень прочным
+          материалом, – фанерой. Дизайн мебели — наш конек. У нас есть даже
+          собственная школа дизайнеров.
+        </p>
+      </div>
+      <div class="about__wrapper-content col-6@lg wow fadeInUp">
+        <svg class="icon">
+          <use xlink:href="svg-sprite/sprite.svg#rank"></use>
+        </svg>
+        <h4 class="about__wrapper-content__title title--size-sm">
+          Низкая конкуренция
+        </h4>
+        <p class="about__wrapper-content__text wow faweIn">
+          Открывая фирменный салон «Песочницы», можете быть уверены – в вашем
+          городе это будет единственный салон подобного рода, а сотрудники
+          соседних мебельных магазинов будут ходить к вам, как в музей
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="openning" class="openning">
+  <div class="container">
+    <h2 class="openning__title title title--size-lg wow fadeIn">
+      С момента открытия мы...
+    </h2>
+    <div class="openning__wrapper grid">
+      <div class="openning__content col-5@lg">
+        <div class="openning__content-item wow fadeInDown">
+          <svg class="icon">
+            <use xlink:href="svg-sprite/sprite.svg#size"></use>
+          </svg>
+          <p class="openning__content-item_text">Расширили цех до 1300 м2</p>
+        </div>
+        <div class="openning__content-item wow fadeInDown">
+          <svg class="icon">
+            <use xlink:href="svg-sprite/sprite.svg#people"></use>
+          </svg>
+          <p class="openning__content-item_text">
+            Увеличили штат до 70 специалистов по всей стране
+          </p>
+        </div>
+        <div class="openning__content-item wow fadeInDown">
+          <svg class="icon">
+            <use xlink:href="svg-sprite/sprite.svg#quill"></use>
+          </svg>
+          <p class="openning__content-item_text">
+            Запустили швейный цех и серийное производство
+          </p>
+        </div>
+        <div class="openning__content-item wow fadeInDown">
+          <svg class="icon">
+            <use xlink:href="svg-sprite/sprite.svg#emoji-happy"></use>
+          </svg>
+          <p class="openning__content-item_text">
+            Обрели более 1000 довольных клиентов в России и Казахстане
+          </p>
+        </div>
+        <div class="openning__content-item wow fadeInDown">
+          <svg class="icon">
+            <use xlink:href="svg-sprite/sprite.svg#status-up"></use>
+          </svg>
+          <p class="openning__content-item_text">
+            Начали выпускать более 300 уникальных комплектов в год
+          </p>
+        </div>
+        <div class="openning__content-item wow fadeInDown">
+          <svg class="icon">
+            <use xlink:href="svg-sprite/sprite.svg#geo"></use>
+          </svg>
+          <p class="openning__content-item_text">
+            Осуществляем работу в 82 <br />
+            регионах страны
+          </p>
+        </div>
+      </div>
+      <div class="openning__picture col-7@lg wow fadeIn">
+        <picture>
+          <source
+            srcset="images/openning/open_d.jpg"
+            media="(min-width:768px)"
+            type="image/jpg"
+          />
+
+          <source
+            srcset="images/openning/open_m.jpg"
+            media="(min-width: 320px) "
+            type="image/jpg"
+          />
+          <img src="images/openning/open_d.jpg" alt="" />
+        </picture>
+        <a href="#partnership" class="openning__link scroll">
+          <svg class="icon">
+            <use xlink:href="svg-sprite/sprite.svg#arr_down"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section id="partnership" class="partnership">
+  <div class="container">
+    <h2 class="partnership__title title title--size-lg wow fadeIn">
+      Условия партнерства
+    </h2>
+    <div class="wrapper grid">
+      <div class="partnership__picture col-6@lg wow fadeInUp">
+        <picture>
+          <source
+            srcset="images/partnership/partner_d.png"
+            media="(min-width:768px)"
+            type="image/png"
+          />
+          <source
+            srcset="images/partnership/partner_m.png"
+            media="(min-width:320px)"
+            type="image/png"
+          />
+          <img src="images/partnership/partner_d.png" alt="" />
+        </picture>
+      </div>
+      <div class="partnership__content col-6@lg">
+        <div class="partnership__content-item wow fadeInUp">
+          <div class="partnership__content-item_line">
+            <h4 class="partnership__content-item_title">Расположение</h4>
+            <p class="partnership__content-item_text">
+              Торговые центры или помещения с отдельным входом
+            </p>
+          </div>
+        </div>
+        <div class="partnership__content-item wow fadeInUp">
+          <div class="partnership__content-item_line">
+            <h4 class="partnership__content-item_title">Площадь салона</h4>
+            <p class="partnership__content-item_text">От 25 кв.м.</p>
+          </div>
+          <div class="partnership__content-item_line">
+            <h4 class="partnership__content-item_title">Инвестиции</h4>
+            <p class="partnership__content-item_text">От 600 тысяч рублей</p>
+          </div>
+          <div class="partnership__content-item_line">
+            <h4 class="partnership__content-item_title">Окупаемость</h4>
+            <p class="partnership__content-item_text">8-10 месяцев</p>
+          </div>
+        </div>
+        <div class="partnership__content-item wow fadeInUp">
+          <div class="partnership__content-item_line">
+            <h4 class="partnership__content-item_title">Реклама в интернете</h4>
+            <p class="partnership__content-item_text">За наш счет</p>
+          </div>
+          <div class="partnership__content-item_line">
+            <h4 class="partnership__content-item_title">
+              Разработка проекта студии
+            </h4>
+            <p class="partnership__content-item_text">За наш счет</p>
+          </div>
+        </div>
+        <div class="partnership__content-item wow fadeInUp">
+          <div class="partnership__content-item_line">
+            <h4 class="partnership__content-item_title">Обучение</h4>
+            <p class="partnership__content-item_text">
+              Стажировка, экскурсия на фабрику
+            </p>
+          </div>
+        </div>
+        <div class="partnership__content-item wow fadeInUp">
+          <div class="partnership__content-item_line">
+            <h4 class="partnership__content-item_title">Дизайн мебели</h4>
+            <p class="partnership__content-item_text">
+              Проектирование мы целиком берем на себя. Вам только нужны
+              менеджеры, которые смогут грамотно представить наш продукт
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section id="make-friends" class="make-friends">
+  <div class="container">
+    <h2 class="make-friends__title title title--size-lg wow fadeIn">
+      Стань нашим партнёром просто
+    </h2>
+    <div class="make-friends__content">
+      <div class="make-friends__content-item wow fadeInLeftTop">
+        <div class="icon_wrapper">
+          <svg class="icon">
+            <use xlink:href="svg-sprite/sprite.svg#fr_1"></use>
+          </svg>
+          <span>1</span>
+        </div>
+        <p class="make-friends__content-item_text wow fadeIn">Знакомство</p>
+      </div>
+      <div class="make-friends__content-item wow fadeInLeftTop">
+        <div class="icon_wrapper">
+          <svg class="icon">
+            <use xlink:href="svg-sprite/sprite.svg#fr_2"></use>
+          </svg>
+          <span>2</span>
+        </div>
+        <p class="make-friends__content-item_text wow fadeIn">
+          Подписание договора
+        </p>
+      </div>
+      <div class="make-friends__content-item wow fadeInLeftTop">
+        <div class="icon_wrapper">
+          <svg class="icon">
+            <use xlink:href="svg-sprite/sprite.svg#fr_3"></use>
+          </svg>
+          <span>3</span>
+        </div>
+        <p class="make-friends__content-item_text wow fadeIn">
+          2 дня стажировки
+        </p>
+      </div>
+      <div class="make-friends__content-item wow fadeInLeftTop">
+        <div class="icon_wrapper">
+          <svg class="icon">
+            <use xlink:href="svg-sprite/sprite.svg#fr_4"></use>
+          </svg>
+          <span>4</span>
+        </div>
+
+        <p class="make-friends__content-item_text wow fadeIn">
+          Поиск и утверждение помещения
+        </p>
+      </div>
+      <div class="make-friends__content-item wow fadeInLeftTop">
+        <div class="icon_wrapper">
+          <svg class="icon">
+            <use xlink:href="svg-sprite/sprite.svg#fr_5"></use>
+          </svg>
+          <span>5</span>
+        </div>
+
+        <p class="make-friends__content-item_text wow fadeIn">
+          Проектирование <br />
+          и разработка образцов <br />
+          для студии
+        </p>
+      </div>
+      <div class="make-friends__content-item wow fadeInLeftTop">
+        <div class="icon_wrapper">
+          <svg class="icon">
+            <use xlink:href="svg-sprite/sprite.svg#fr_6"></use>
+          </svg>
+          <span>6</span>
+        </div>
+
+        <p class="make-friends__content-item_text wow fadeIn">
+          Отправка мебели
+        </p>
+      </div>
+      <div class="make-friends__content-item wow fadeInLeftTop">
+        <div class="icon_wrapper">
+          <svg class="icon">
+            <use xlink:href="svg-sprite/sprite.svg#fr_7"></use>
+          </svg>
+          <span>7</span>
+        </div>
+
+        <p class="make-friends__content-item_text wow fadeIn">
+          Официальное открытие
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section id="feedback" class="feedback">
+  <div class="container">
+    <h2 class="feedback__title title title--size-lg wow fadeIn">
+      Отзывы наших дилеров
+    </h2>
+    <div class="feedback-swiper swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="wrapper">
+            <div class="wrapper_picture">
+              <picture>
+                <source
+                  srcset="images/feedback/feed_d.jpg"
+                  media="(min-width:768px) "
+                  type="image/jpg"
+                />
+                <source
+                  srcset="images/feedback/feed_m.jpg"
+                  media="(min-width:320px)"
+                  type="image/jpg"
+                />
+                <img src="images/feedback/feed_d.jpg" alt="" />
+              </picture>
+            </div>
+            <div class="wrapper-feedback">
+              <svg class="icon">
+                <use xlink:href="svg-sprite/sprite.svg#quote"></use>
+              </svg>
+              <h4 class="wrapper-feedback_title title--size-sm">
+                Елена Мельникова
+              </h4>
+              <p class="wrapper-feedback_text text__size-sm">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                quae ab illo inventore veritatis et quasi architecto beatae
+                vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
+                voluptas sit aspernatur aut odit aut fugit, sed quia
+                consequuntur magni dolores eos qui ratione voluptatem sequi
+                nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor
+                sit amet, consectetur, adipisci velit, sed quia non numquam eius
+                modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                voluptatem. Ut enim ad minima veniam, quis nostrum
+                exercitationem ullam corporis suscipit laboriosam, nisi ut
+                aliquid ex ea commodi consequatur? Quis autem vel eum iure
+                reprehenderit qui in ea voluptate velit esse quam nihil
+                molestiae consequatur, vel illum qui dolorem eum fugiat quo
+                voluptas nulla pariatur?
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="wrapper">
+            <div class="wrapper_picture">
+              <picture>
+                <source
+                  srcset="images/feedback/feed_d.jpg"
+                  media="(min-width:1024px) "
+                  type="image/jpg"
+                />
+                <source
+                  srcset="images/feedback/feed_m.jpg"
+                  media="(min-width:320px)"
+                  type="image/jpg"
+                />
+                <img src="images/feedback/feed_d.jpg" alt="" />
+              </picture>
+            </div>
+            <div class="wrapper-feedback">
+              <svg class="icon">
+                <use xlink:href="svg-sprite/sprite.svg#quote"></use>
+              </svg>
+              <h4 class="wrapper-feedback_title title--size-sm">
+                Елена Мельникова
+              </h4>
+              <p class="wrapper-feedback_text text__size-sm">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                quae ab illo inventore veritatis et quasi architecto beatae
+                vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
+                voluptas sit aspernatur aut odit aut fugit, sed quia
+                consequuntur magni dolores eos qui ratione voluptatem sequi
+                nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor
+                sit amet, consectetur, adipisci velit, sed quia non numquam eius
+                modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                voluptatem. Ut enim ad minima veniam, quis nostrum
+                exercitationem ullam corporis suscipit laboriosam, nisi ut
+                aliquid ex ea commodi consequatur? Quis autem vel eum iure
+                reprehenderit qui in ea voluptate velit esse quam nihil
+                molestiae consequatur, vel illum qui dolorem eum fugiat quo
+                voluptas nulla pariatur?
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="wrapper">
+            <div class="wrapper_picture">
+              <picture>
+                <source
+                  srcset="images/feedback/feed_d.jpg"
+                  media="(min-width:1024px) "
+                  type="image/jpg"
+                />
+                <source
+                  srcset="images/feedback/feed_m.jpg"
+                  media="(min-width:320px)"
+                  type="image/jpg"
+                />
+                <img src="images/feedback/feed_d.jpg" alt="" />
+              </picture>
+            </div>
+            <div class="wrapper-feedback">
+              <svg class="icon">
+                <use xlink:href="svg-sprite/sprite.svg#quote"></use>
+              </svg>
+              <h4 class="wrapper-feedback_title title--size-sm">
+                Елена Мельникова
+              </h4>
+              <p class="wrapper-feedback_text text__size-sm">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                quae ab illo inventore veritatis et quasi architecto beatae
+                vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
+                voluptas sit aspernatur aut odit aut fugit, sed quia
+                consequuntur magni dolores eos qui ratione voluptatem sequi
+                nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor
+                sit amet, consectetur, adipisci velit, sed quia non numquam eius
+                modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                voluptatem. Ut enim ad minima veniam, quis nostrum
+                exercitationem ullam corporis suscipit laboriosam, nisi ut
+                aliquid ex ea commodi consequatur? Quis autem vel eum iure
+                reprehenderit qui in ea voluptate velit esse quam nihil
+                molestiae consequatur, vel illum qui dolorem eum fugiat quo
+                voluptas nulla pariatur?
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="swiper-button-group">
+    <button data-slider-btn="feedback-prev" class="swiper-button-prev">
+      <svg class="icon">
+        <use xlink:href="svg-sprite/sprite.svg#arr_l"></use>
+      </svg>
+    </button>
+    <button data-slider-btn="feedback-next" class="swiper-button-next">
+      <svg class="icon">
+        <use xlink:href="svg-sprite/sprite.svg#arr_r"></use>
+      </svg>
+    </button>
+  </div>
+</section>
+ 
+<section id="questions" class="questions">
+  <div class="container">
+    <div class="questions__wrapper">
+      <div class="questions__title-wrapper">
+        <h2
+          class="questions__title-wrapper_title title title--size-lg wow fadeIn"
+        >
+          Остались вопросы? Нужно коммерческое предложение?
+        </h2>
+        <p class="questions__title-wrapper_text wow fadeInLeft">
+          Заполните форму и мы с вами свяжемся
+        </p>
+      </div>
+      <div class="questions__form-wrapper_bg wow fadeInUp">
+        <div class="questions__form-wrapper_bg-a">
+          <div class="questions__form-wrapper">
+            <p class="questions__form-wrapper_text">
+              Заполните форму <br />
+              и мы с вами свяжемся
+            </p>
+            <form id="questions__form" class="form js-form">
+              <input
+                class="form-input-title"
+                type="hidden"
+                name="form-title"
+                value=""
+              />
+              <div class="form-send">
+                <div class="form-send__message">
+                  <div class="form-send__loading"><span></span></div>
+                  <p class="form-send__success">
+                    Спасибо, ваша заявка принята. Менеджер свяжется с вами в
+                    ближайшее время
+                  </p>
+                  <p class="form-send__error">
+                    Что-то пошло не так. Заявка не отправлена.
+                  </p>
+                </div>
+                <label class="form-field">
+                  <svg class="icon">
+                    <use xlink:href="svg-sprite/sprite.svg#user"></use>
+                  </svg>
+                  <input
+                    class="form-field__input"
+                    placeholder="Введите ваше имя"
+                    type="text"
+                    name="name"
+                    required
+                  />
+                  <span class="form-field__text">Введите ваше имя</span>
+                </label>
+                <label class="form-field">
+                  <svg class="icon">
+                    <use xlink:href="svg-sprite/sprite.svg#phone"></use>
+                  </svg>
+                  <input
+                    class="form-field__input form-phone"
+                    placeholder="phone"
+                    type="tel"
+                    name="phone"
+                    required
+                  />
+                  <span class="form-field__text">Введите ваш телефон</span>
+                </label>
+                <label class="form-field">
+                  <svg class="icon">
+                    <use xlink:href="svg-sprite/sprite.svg#mail"></use>
+                  </svg>
+                  <input
+                    class="form-field__input"
+                    placeholder="email"
+                    type="email"
+                    name="email"
+                  />
+                  <span class="form-field__text">Введите вашу почту</span>
+                  <span class="form-field__email"
+                    >Пожалуйста, введите адрес электронной почты.</span
+                  >
+                </label>
+                <button
+                  type="submit"
+                  class="form-send__btn btn btn--primary btn--size-md"
+                >
+                  ОТПРАВИТЬ ЗАЯВКУ
+                </button>
+                <label class="form-send__check">
+                  <input class="check-box" type="checkbox" required />
+                  <span class="check-style"></span>
+                  Я согласен с
+                  <a class="form-send__check-link" href="/"
+                    >политикой конфиденциальности</a
+                  >
+                </label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+
+    <footer class="footer wow fadeInUp">
+  <div class="footer__container container">
+    <div class="footer__wrapper">
+      <div class="footer__logo logo">
+        <img src="images/global/logo_d.png" alt="Логотип" />
+      </div>
+      <nav class="footer__nav">
+        <ul class="footer__nav-list">
+          <li class="footer__nav-list_item">
+            <a class="footer__nav-list_item_link scroll" href="#about">О нас</a>
+          </li>
+          <li class="footer__nav-list_item">
+            <a class="footer__nav-list_item_link scroll" href="#partnership"
+              >Условия партнерства</a
+            >
+          </li>
+          <li class="footer__nav-list_item">
+            <a class="footer__nav-list_item_link scroll" href="#make-friends"
+              >Стать партнером</a
+            >
+          </li>
+          <li class="footer__nav-list_item">
+            <a class="footer__nav-list_item_link scroll" href="#feedback"
+              >Отзывы</a
+            >
+          </li>
+        </ul>
+        <div class="footer__nav-social__wrapper">
+          <a href="tel:74959259042" class="footer__nav-link">7 495 925-90-42</a>
+          <div class="social-group">
+            <a
+              href="https://api.whatsapp.com/send?phone=79223541841"
+              class="social social--size social--circle"
+              target="_blank"
+              ><svg class="icon">
+                <use xlink:href="svg-sprite/sprite.svg#wats"></use></svg
+            ></a>
+            <a
+              href="viber://pa?chatURI=pesochnicaperm"
+              class="social social--size social--circle"
+              target="_blank"
+              ><svg class="icon">
+                <use xlink:href="svg-sprite/sprite.svg#wb"></use></svg
+            ></a>
+            <a
+              href="https://www.instagram.com/mebel_pesochnica/"
+              class="social social--size social--circle"
+              target="_blank"
+              ><svg class="icon">
+                <use xlink:href="svg-sprite/sprite.svg#ig"></use></svg
+            ></a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</footer>
+ <div
+  id="modal-video"
+  class="modal modal--theme-primary"
+  data-modal-target="false"
+>
+  <div class="modal__wrapper">
+    <div class="modal__container modal-video">
+      <div class="modal-video__header modal__header">
+        <button class="modal__header-close modal__close">
+          <svg class="icon">
+            <use xlink:href="svg-sprite/sprite.svg#close_plum"></use>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-video__box modal__box">
+        <div class="video adaptive-box">
+          <div
+            id="init-modal-video"
+            class="video__frame"
+            data-video-src="8LaNulP9hSE"
+          ></div>
+          <span
+            class="video__loader loader loader--center loader--size-lg"
+          ></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div id="modal-form" class="modal modal--theme-secondary">
+  <div class="modal__wrapper">
+    <div class="modal__container modal-form">
+      <div class="modal__box modal-form__box modal-target">
+        <div class="modal-form__wrapper">
+          <button class="modal-form__close modal__close">
+            <svg class="icon">
+              <use xlink:href="svg-sprite/sprite.svg#close"></use>
+            </svg>
+          </button>
+          <p class="title--size-sm">
+            Заполните форму <br />
+            и мы с вами свяжемся
+          </p>
+          <form id="main-form" class="form js-form">
+            <input
+              class="form-input-title"
+              type="hidden"
+              name="form-title"
+              value=""
+            />
+            <div class="form-send">
+              <div class="form-send__message">
+                <div class="form-send__loading"><span></span></div>
+                <p class="form-send__success">
+                  Спасибо, ваша заявка принята. Менеджер свяжется с вами в
+                  ближайшее время
+                </p>
+                <p class="form-send__error">
+                  Что-то пошло не так. Заявка не отправлена.
+                </p>
+              </div>
+              <label class="form-field">
+                <svg class="icon">
+                  <use xlink:href="svg-sprite/sprite.svg#user"></use>
+                </svg>
+                <input
+                  class="form-field__input"
+                  placeholder="Введите ваше имя"
+                  type="text"
+                  name="name"
+                  required
+                />
+                <span class="form-field__text">Введите ваше имя</span>
+              </label>
+              <label class="form-field">
+                <svg class="icon">
+                  <use xlink:href="svg-sprite/sprite.svg#phone"></use>
+                </svg>
+                <input
+                  class="form-field__input form-phone"
+                  placeholder="phone"
+                  type="tel"
+                  name="phone"
+                  required
+                />
+                <span class="form-field__text">Введите ваш телефон</span>
+              </label>
+              <label class="form-field">
+                <svg class="icon">
+                  <use xlink:href="svg-sprite/sprite.svg#mail"></use>
+                </svg>
+                <input
+                  class="form-field__input"
+                  placeholder="email"
+                  type="email"
+                  name="email"
+                />
+                <span class="form-field__text">Введите вашу почту</span>
+                <span class="form-field__email"
+                  >Пожалуйста, введите адрес электронной почты.</span
+                >
+              </label>
+              <button
+                type="submit"
+                class="form-send__btn btn btn--primary btn--size-md"
+              >
+                ОТПРАВИТЬ ЗАЯВКУ
+              </button>
+              <label class="form-send__check">
+                <input class="check-box" type="checkbox" required />
+                <span class="check-style"></span>
+                Я согласен с
+                <a class="form-send__check-link" href="/"
+                  >политикой конфиденциальности</a
+                >
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- 
+    <div id="modal-politic" class="modal modal--theme-secondary _index">
+    <div class="modal__wrapper">
+        <div class="modal__container modal-politic">
+            <div class="modal-politic__box modal-target">
+                <button class="modal-politic__close modal__close">
+                    <svg class="icon"><use xlink:href="svg-sprite/sprite.svg#close"></use></svg>
+                </button>
+                <div class="modal-politic__wrapper">
+                    <h2 class="modal-politic__title title">Политика конфиденциальности</h2>
+                    <p class="modal-politic__text">Согласие дано Оператору для совершения следующих действий с моими персональными данными с использованием средств автоматизации и/или без использования таких средств: сбор, систематизация, накопление, хранение, уточнение (обновление, изменение), использование, обезличивание, передача третьим лицам для указанных ниже целей, а также осуществление любых иных действий, предусмотренных действующим законодательством РФ, как неавтоматизированными, так и автоматизированными способами.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+   -->
+
+    <script src="js/libraries/libraries.js"></script>
+    <script src="js/main/main.js"></script>
+  </body>
+</html>

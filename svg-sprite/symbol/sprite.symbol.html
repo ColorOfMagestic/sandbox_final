@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<script src="https://rawgit.com/jonathantneal/svg4everybody/master/dist/svg4everybody.js"></script>
+		<script>svg4everybody();</script>
+		<title>SVG &lt;symbol&gt; sprite preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+		
+<!--
+	
+Sprite shape dimensions
+====================================================================================================
+You will need to set the sprite shape dimensions via CSS when you use them as inline SVG, otherwise
+they would become a huge 100% in size. You may use the following dimension classes for doing so.
+They might well be outsourced to an external stylesheet of course.
+
+-->
+
+<style type="text/css">
+	.svg-arr_down-dims { width: 120px; height: 120px; }
+	.svg-arr_l-dims { width: 29px; height: 29px; }
+	.svg-arr_r-dims { width: 29px; height: 29px; }
+	.svg-close-dims { width: 46px; height: 46px; }
+	.svg-close_plum-dims { width: 24px; height: 24px; }
+	.svg-earth-dims { width: 70px; height: 70px; }
+	.svg-emoji-happy-dims { width: 70px; height: 70px; }
+	.svg-fr_1-dims { width: 100px; height: 107px; }
+	.svg-fr_2-dims { width: 100px; height: 106px; }
+	.svg-fr_3-dims { width: 100px; height: 107px; }
+	.svg-fr_4-dims { width: 100px; height: 107px; }
+	.svg-fr_5-dims { width: 100px; height: 106px; }
+	.svg-fr_6-dims { width: 100px; height: 107px; }
+	.svg-fr_7-dims { width: 100px; height: 106px; }
+	.svg-geo-dims { width: 70px; height: 70px; }
+	.svg-ig-dims { width: 19px; height: 19px; }
+	.svg-mail-dims { width: 35px; height: 35px; }
+	.svg-pen-dims { width: 70px; height: 70px; }
+	.svg-people-dims { width: 70px; height: 70px; }
+	.svg-phone-dims { width: 35px; height: 35px; }
+	.svg-quill-dims { width: 67px; height: 67px; }
+	.svg-quote-dims { width: 72px; height: 52px; }
+	.svg-rank-dims { width: 70px; height: 70px; }
+	.svg-routing-dims { width: 70px; height: 70px; }
+	.svg-size-dims { width: 70px; height: 70px; }
+	.svg-status-up-dims { width: 70px; height: 70px; }
+	.svg-triangle-dims { width: 31px; height: 36px; }
+	.svg-user-dims { width: 35px; height: 35px; }
+	.svg-wats-dims { width: 21px; height: 21px; }
+	.svg-wb-dims { width: 17px; height: 18px; }
+</style>
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+	
+<!--
+	
+Inline <symbol> SVG sprite
+====================================================================================================
+This is an inlined version of the generated SVG sprite. The single images may be <use>d everywhere
+below within this document. Please see
+
+	https://github.com/jkphl/svg-sprite/blob/master/docs/configuration.md#defs--symbol-mode
+
+for further details on how to create this embeddable sprite variant.
+
+-->
+
+<svg width="0" height="0" style="position:absolute">
+		<symbol fill="none" viewBox="0 0 120 120" id="arr_down"><path d="M52.484.26v90.945L10.748 49.469.174 60.043l59.783 59.783 59.782-59.783-10.574-10.574-41.736 41.736V.261H52.484z" fill="#fff"/></symbol>
+		<symbol fill="none" viewBox="0 0 29 29" id="arr_l"><path d="M18.171 24.034l-7.848-7.849a2.39 2.39 0 010-3.37l7.848-7.848" stroke="#fff" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 29 29" id="arr_r"><path d="M10.829 4.967l7.848 7.848a2.39 2.39 0 010 3.37l-7.848 7.848" stroke="#fff" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 46 46" id="close"><path d="M14.868 14.868l16.264 16.264m-16.264 0l16.264-16.264" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 24 24" id="close_plum"><path d="M7.757 7.757l8.486 8.486m-8.486 0l8.486-8.486" stroke="#745670" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 70 70" id="earth"><path d="M64.167 35C64.167 18.9 51.1 5.833 35 5.833S5.833 18.9 5.833 35 18.9 64.167 35 64.167" stroke="#745670" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M23.333 8.75h2.917a82.902 82.902 0 000 52.5h-2.917M43.75 8.75A83.283 83.283 0 0148.008 35" stroke="#745670" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.75 46.667V43.75A83.283 83.283 0 0035 48.008M8.75 26.25a82.902 82.902 0 0152.5 0m-8.167 36.167a9.333 9.333 0 100-18.667 9.333 9.333 0 000 18.667zm11.084 1.75L61.25 61.25" stroke="#745670" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 70 70" id="emoji-happy"><path d="M26.25 64.167h17.5c14.583 0 20.417-5.834 20.417-20.417v-17.5c0-14.583-5.834-20.417-20.417-20.417h-17.5c-14.583 0-20.417 5.834-20.417 20.417v17.5c0 14.583 5.834 20.417 20.417 20.417z" stroke="#745670" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M45.208 28.438a4.375 4.375 0 100-8.75 4.375 4.375 0 000 8.75zm-20.416 0a4.375 4.375 0 100-8.75 4.375 4.375 0 000 8.75zM24.5 38.792h21a2.614 2.614 0 012.625 2.625A13.107 13.107 0 0135 54.542a13.107 13.107 0 01-13.125-13.125 2.614 2.614 0 012.625-2.625z" stroke="#745670" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 100 107" id="fr_1"><circle cx="50" cy="57" r="49.5" stroke="#000" stroke-opacity=".1"/><path d="M41.318 7.76a50 50 0 001.195 98.676l.224-1.483A48.497 48.497 0 011.505 57.587a48.5 48.5 0 0140.074-48.35l-.26-1.477z" fill="#745670"/><path d="M15.71 5.7h4.18V19h-1.64V7.22h-2.54V5.7z" fill="#fff"/><g clip-path="url(#ahclip0_185_240)" fill="#745670"><path d="M37.856 54.912c0 .464.18.899.508 1.225l.613.613a4.305 4.305 0 003.064 1.269c1.158 0 2.245-.45 3.064-1.269l4.317-4.317a9.46 9.46 0 006.098 2.206h.004a9.49 9.49 0 006.748-2.8.866.866 0 10-1.225-1.226 7.768 7.768 0 01-5.524 2.293h-.002a7.746 7.746 0 01-5.513-2.284.867.867 0 00-1.226 0l-4.903 4.903c-.981.982-2.695.982-3.676 0l-.613-.613 10.418-10.418c.971-.972 1.895-.972 3.063-.972 1.252 0 2.811 0 4.29-1.479l2.451-2.452a.866.866 0 10-1.225-1.225l-2.45 2.452c-.973.971-1.896.971-3.066.971-1.25 0-2.81 0-4.288 1.48L38.364 53.685a1.72 1.72 0 00-.51 1.226zM31.8 40.536a1.734 1.734 0 000-3.467 1.734 1.734 0 000 3.467zm8.402 2.732l2.451 2.451a.863.863 0 001.226 0 .866.866 0 000-1.225l-2.451-2.451a.866.866 0 10-1.226 1.225zM68.2 37.07c.955 0 1.733-.778 1.733-1.734s-.778-1.734-1.733-1.734c-.955 0-1.734.778-1.734 1.734s.779 1.733 1.734 1.733zm1.987 12.386c-1.408 1.409-1.892 3.703-2.359 5.921-.414 1.97-.843 4.007-1.887 5.05l-1.226 1.226a.867.867 0 001.226 1.225l1.226-1.225c1.407-1.408 1.89-3.7 2.357-5.919.415-1.97.845-4.008 1.888-5.052a.865.865 0 10-1.225-1.226z"/><path d="M75.746 49.456l-14.12-14.12 2.853-2.854a.866.866 0 10-1.225-1.226l-3.467 3.467a.866.866 0 000 1.226L74.52 50.682a.864.864 0 001.226 0 .866.866 0 000-1.226zm-19.61 7.294a.867.867 0 00-1.226 1.227l9.192 9.191a1.736 1.736 0 010 2.452 1.738 1.738 0 01-2.452 0l-9.191-9.193a.866.866 0 10-1.226 1.226l11.644 11.643a1.734 1.734 0 01-2.452 2.452l-11.03-11.03a.866.866 0 10-1.225 1.225l9.804 9.804a1.736 1.736 0 010 2.452c-.655.655-1.795.655-2.45 0l-1.227-1.226-7.966-7.966a.866.866 0 10-1.226 1.226l7.966 7.966c.328.328.508.763.508 1.227a1.735 1.735 0 01-2.959 1.225L35.88 65.922c-2.248-2.247-2.736-5.08-3.166-7.58-.363-2.104-.705-4.09-2.034-5.42a.866.866 0 10-1.226 1.225c.94.94 1.224 2.585 1.552 4.489.45 2.617 1.012 5.875 3.648 8.511l14.741 14.728a3.456 3.456 0 002.451 1.014 3.45 3.45 0 002.45-1.014 3.451 3.451 0 00.952-1.776c1.27.613 2.925.353 3.952-.675a3.449 3.449 0 00.95-1.778 3.471 3.471 0 003.952-.674 3.47 3.47 0 000-4.902l-.328-.33a3.455 3.455 0 001.555-.895 3.472 3.472 0 000-4.903l-9.193-9.193zM40.213 38.19l-5.2-5.2a.866.866 0 10-1.226 1.225l4.588 4.587-14.12 14.121a.866.866 0 101.225 1.225l14.733-14.733a.866.866 0 000-1.225zm5.103 42.918c-.483.254-1.307.284-2.05-.457-.743-.744-.737-1.608-.496-1.984a.866.866 0 00-1.342-1.08 1.736 1.736 0 01-2.452 0 1.737 1.737 0 010-2.453.862.862 0 000-1.225.867.867 0 00-1.225 0l-.613.613a1.734 1.734 0 01-2.451 0 1.736 1.736 0 010-2.451l.613-.613a.866.866 0 00-1.047-1.363c-.472.272-1.301.24-2.017-.475-.76-.761-.757-1.604-.512-1.96a.867.867 0 00-1.427-.984c-.7 1.016-.682 2.774.714 4.17.55.548 1.147.876 1.737 1.032a3.45 3.45 0 00-.302 1.418 3.468 3.468 0 004.304 3.363 3.453 3.453 0 001 2.153 3.47 3.47 0 003.179.938c.107.717.455 1.469 1.112 2.126.801.801 1.737 1.122 2.592 1.122.548 0 1.063-.133 1.487-.355a.866.866 0 10-.804-1.535z"/></g><defs><clipPath id="ahclip0_185_240"><path fill="#fff" transform="translate(24 31)" d="M0 0h52v52H0z"/></clipPath></defs></symbol>
+		<symbol fill="none" viewBox="0 0 100 106" id="fr_2"><circle cx="50" cy="56" r="49.5" stroke="#000" stroke-opacity=".1"/><path d="M88.302 88.14a50 50 0 00-13.444-75.523l-.746 1.301a48.5 48.5 0 0113.041 73.257l1.15.964z" fill="#745670"/><path d="M14.226 17.42h5.68V19h-8.94v-.54c2.067-2.16 3.567-3.787 4.5-4.88.933-1.107 1.547-1.947 1.84-2.52.293-.573.44-1.16.44-1.76 0-.333-.06-.64-.18-.92a1.9 1.9 0 00-.48-.72c-.2-.2-.447-.353-.74-.46a2.789 2.789 0 00-.96-.16c-.493 0-.927.1-1.3.3a2 2 0 00-.86.8c-.2.347-.3.74-.3 1.18v.32h-1.64v-.32c0-.76.167-1.433.5-2.02a3.54 3.54 0 011.44-1.36c.627-.32 1.347-.48 2.16-.48 1.187 0 2.153.36 2.9 1.08.747.707 1.12 1.627 1.12 2.76 0 .653-.12 1.273-.36 1.86-.24.587-.733 1.373-1.48 2.36-.733.973-1.847 2.273-3.34 3.9z" fill="#fff"/><path d="M52.73 38.8L34.942 57.628c-.672.715-1.322 2.124-1.452 3.099l-.802 7.02c-.281 2.535 1.539 4.268 4.052 3.835l6.977-1.192c.975-.173 2.34-.888 3.011-1.625l17.789-18.828c3.076-3.25 4.463-6.955-.325-11.484-4.767-4.485-8.385-2.903-11.462.347zm-2.968 3.142c.931 5.98 5.785 10.551 11.808 11.158M30.5 78.667h39" stroke="#745670" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 100 107" id="fr_3"><circle cx="50" cy="57" r="49.5" stroke="#000" stroke-opacity=".1"/><path d="M100 57a50 50 0 01-86.812 33.836l1.104-1.015a48.502 48.502 0 0075.748-5.453A48.5 48.5 0 0098.5 57h1.5z" fill="#745670"/><path d="M15.178 10.72c1.093.16 1.98.627 2.66 1.4.68.76 1.02 1.687 1.02 2.78 0 1.253-.427 2.293-1.28 3.12-.853.813-1.913 1.22-3.18 1.22-1.226 0-2.246-.387-3.06-1.16-.813-.773-1.253-1.76-1.32-2.96h1.62c.053.76.334 1.373.84 1.84.507.467 1.147.7 1.92.7.534 0 1.014-.12 1.44-.36a2.57 2.57 0 001-1 3 3 0 00.36-1.46c0-.813-.287-1.48-.86-2-.56-.533-1.273-.8-2.14-.8h-1.5v-.32l3.08-4.5h-5.32V5.7h7.88v.38l-3.16 4.64z" fill="#fff"/><path d="M41.333 35.333v6.5m17.334-6.5v6.5m-27.084 8.862h36.834m1.083-1.278v18.416c0 6.5-3.25 10.834-10.833 10.834H41.333c-7.583 0-10.833-4.334-10.833-10.834V49.417c0-6.5 3.25-10.834 10.833-10.834h17.334c7.583 0 10.833 4.334 10.833 10.834z" stroke="#745670" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M58.005 60.683h.02m-.02 6.5h.02m-8.035-6.5h.02m-.02 6.5h.02m-8.039-6.5h.02m-.02 6.5h.02" stroke="#745670" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 100 107" id="fr_4"><circle cx="50" cy="57" r="49.5" stroke="#000" stroke-opacity=".1"/><path d="M93.301 32A50 50 0 003.703 75.882l1.388-.566A48.5 48.5 0 0192.002 32.75l1.3-.75z" fill="#745670"/><path d="M20.33 14.72v1.48h-1.4V19h-1.6v-2.8h-6.82v-.4l4.68-10.1h1.72l-4.16 9.02h4.6l.26-4.1h1.32v4.1h1.4z" fill="#fff"/><path d="M71.667 57c0-11.96-9.707-21.667-21.667-21.667S28.333 45.04 28.333 57 38.04 78.667 50 78.667" stroke="#745670" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M41.333 37.5H43.5a61.584 61.584 0 000 39h-2.167m15.167-39A61.867 61.867 0 0159.663 57" stroke="#745670" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M30.5 65.667V63.5A61.867 61.867 0 0050 66.663M30.5 50.5a61.584 61.584 0 0139 0m-6.067 26.867a6.933 6.933 0 100-13.867 6.933 6.933 0 000 13.867zm8.234 1.3L69.5 76.5" stroke="#745670" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 100 106" id="fr_5"><circle cx="50" cy="56" r="49.5" stroke="#000" stroke-opacity=".1"/><path d="M88.302 88.14a50 50 0 00-13.444-75.523l-.746 1.301a48.5 48.5 0 0113.041 73.257l1.15.964z" fill="#745670"/><path d="M15.346 10.6c.867 0 1.647.187 2.34.56a4.024 4.024 0 011.64 1.56c.4.653.6 1.38.6 2.18 0 1.24-.427 2.273-1.28 3.1s-1.907 1.24-3.16 1.24c-1.24 0-2.273-.387-3.1-1.16-.827-.787-1.26-1.773-1.3-2.96h1.62c.027.493.16.933.4 1.32.253.387.587.687 1 .9.413.213.873.32 1.38.32.8 0 1.46-.26 1.98-.78s.78-1.18.78-1.98c0-.533-.127-1.013-.38-1.44a2.604 2.604 0 00-1.06-1.02c-.453-.24-.96-.36-1.52-.36h-3.38l-.24-.28.68-6.1h6.66v1.52h-5.3l-.36 3.38h2z" fill="#fff"/><path d="M45.667 39.75V69c0 2.34-.954 4.485-2.47 6.045l-.087.087a6.71 6.71 0 01-.607.541 7.581 7.581 0 01-2.145 1.3c-.238.109-.476.195-.715.282a8.423 8.423 0 01-2.643.412c-.585 0-1.17-.065-1.733-.174-.282-.065-.564-.13-.845-.216a7.812 7.812 0 01-.997-.369c0-.021 0-.021-.022 0a10.924 10.924 0 01-1.733-1.061l-.022-.022a5.95 5.95 0 01-.78-.693c-.238-.26-.476-.52-.715-.802a10.922 10.922 0 01-1.061-1.733c.021-.022.021-.022 0-.022 0 0 0-.022-.022-.043-.13-.304-.238-.629-.347-.954a12.142 12.142 0 01-.216-.845A9.224 9.224 0 0128.333 69V39.75c0-3.25 2.167-5.417 5.417-5.417h6.5c3.25 0 5.417 2.167 5.417 5.417z" stroke="#745670" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M71.667 65.75v6.5c0 3.25-2.167 5.417-5.417 5.417H37c.888 0 1.798-.13 2.643-.412.239-.087.477-.173.715-.282a7.581 7.581 0 002.145-1.3 6.71 6.71 0 00.607-.541l.087-.087L57.93 60.333h8.32c3.25 0 5.417 2.167 5.417 5.417zM34.422 77.277a8.309 8.309 0 01-3.554-2.145 8.309 8.309 0 01-2.145-3.554 8.709 8.709 0 005.699 5.699z" stroke="#745670" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M63.802 54.462l-5.872 5.871-14.733 14.712A8.682 8.682 0 0045.667 69V48.07l5.871-5.872c2.297-2.296 5.374-2.296 7.67 0l4.594 4.594c2.296 2.296 2.296 5.373 0 7.67zM37 71.167a2.167 2.167 0 100-4.334 2.167 2.167 0 000 4.334z" stroke="#745670" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 100 107" id="fr_6"><circle cx="50" cy="57" r="49.5" stroke="#000" stroke-opacity=".1"/><path d="M100 57a50 50 0 01-86.812 33.836l1.104-1.015a48.502 48.502 0 0075.748-5.453A48.5 48.5 0 0098.5 57h1.5z" fill="#745670"/><path d="M14.413 10.34c1.227 0 2.287.413 3.18 1.24.893.813 1.34 1.853 1.34 3.12 0 1.32-.447 2.407-1.34 3.26-.893.853-2.027 1.28-3.4 1.28-1.4 0-2.546-.427-3.44-1.28-.893-.853-1.34-1.94-1.34-3.26 0-1.213.487-2.687 1.46-4.42l2.66-4.7h1.82c-1.613 2.867-2.573 4.6-2.88 5.2a4.442 4.442 0 011.94-.44zm-2.46 6.48c.587.56 1.327.84 2.22.84.893 0 1.633-.273 2.22-.82.587-.56.88-1.273.88-2.14 0-.56-.133-1.067-.4-1.52-.267-.453-.64-.8-1.12-1.04a3.258 3.258 0 00-1.58-.38c-.587 0-1.12.127-1.6.38a2.804 2.804 0 00-1.1 1.06c-.267.44-.4.94-.4 1.5 0 .853.293 1.56.88 2.12z" fill="#fff"/><path d="M50 60.333h2.167A4.346 4.346 0 0056.5 56V34.333H37a8.658 8.658 0 00-7.562 4.442" stroke="#745670" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M28.333 66.833c0 3.597 2.904 6.5 6.5 6.5H37A4.346 4.346 0 0141.333 69a4.346 4.346 0 014.334 4.333h8.666A4.346 4.346 0 0158.667 69 4.346 4.346 0 0163 73.333h2.167c3.596 0 6.5-2.903 6.5-6.5v-6.5h-6.5A2.173 2.173 0 0163 58.167v-6.5c0-1.192.975-2.167 2.167-2.167h2.795l-3.705-6.478a4.369 4.369 0 00-3.77-2.189H56.5V56a4.346 4.346 0 01-4.333 4.333H50" stroke="#745670" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M41.333 77.667a4.333 4.333 0 100-8.667 4.333 4.333 0 000 8.667zm17.334 0a4.333 4.333 0 100-8.667 4.333 4.333 0 000 8.667zm13-21.667v4.333h-6.5A2.173 2.173 0 0163 58.167v-6.5c0-1.192.975-2.167 2.167-2.167h2.795l3.705 6.5zm-43.334-8.667h13m-13 6.5H37m-8.667 6.5h4.334" stroke="#745670" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 100 106" id="fr_7"><circle cx="50" cy="56" r="49.5" stroke="#000" stroke-opacity=".1"/><path d="M88.302 88.14a50 50 0 00-13.444-75.523l-.746 1.301a48.5 48.5 0 0113.041 73.257l1.15.964z" fill="#745670"/><path d="M10.54 5.7h9v.28L14.3 19h-1.76l4.78-11.78h-6.78V5.7z" fill="#fff"/><path d="M40.207 69.758l6.716 5.2c.867.867 2.817 1.3 4.117 1.3h8.233c2.6 0 5.417-1.95 6.067-4.55l5.2-15.816c1.083-3.034-.867-5.634-4.117-5.634h-8.666c-1.3 0-2.384-1.083-2.167-2.6l1.083-6.933c.434-1.95-.866-4.117-2.816-4.767-1.734-.65-3.9.217-4.767 1.517l-8.883 13.217" stroke="#745670" stroke-width="2" stroke-miterlimit="10"/><path d="M29.157 69.758V48.525c0-3.033 1.3-4.117 4.333-4.117h2.167c3.033 0 4.333 1.084 4.333 4.117v21.233c0 3.034-1.3 4.117-4.333 4.117H33.49c-3.033 0-4.333-1.083-4.333-4.117z" stroke="#745670" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 70 70" id="geo"><path d="M64.167 26.25v17.5c0 7.292-1.459 12.396-4.725 15.692L40.833 40.833 63.38 18.288c.525 2.304.788 4.929.788 7.962z" stroke="#745670" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M63.38 18.288L18.286 63.379C9.508 61.367 5.833 55.3 5.833 43.75v-17.5c0-14.583 5.834-20.417 20.417-20.417h17.5c11.55 0 17.617 3.675 19.63 12.455z" stroke="#745670" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M59.442 59.442c-3.296 3.266-8.4 4.725-15.692 4.725h-17.5c-3.033 0-5.658-.263-7.962-.788l22.545-22.546 18.609 18.609z" stroke="#745670" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.2 23.275c1.983-8.546 14.817-8.546 16.8 0 1.138 5.017-2.013 9.275-4.783 11.9-2.013 1.925-5.192 1.925-7.234 0-2.77-2.625-5.95-6.883-4.783-11.9z" stroke="#745670" stroke-width="3"/><path d="M26.526 25.375h.026" stroke="#745670" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 19 19" id="ig"><path d="M9.383.45c-2.49 0-2.802.01-3.78.055C4.627.549 3.96.704 3.377.93a4.49 4.49 0 00-1.624 1.057A4.5 4.5 0 00.695 3.612C.468 4.195.313 4.862.27 5.837c-.044.978-.055 1.29-.055 3.78 0 2.49.011 2.802.055 3.78.045.976.2 1.642.426 2.225a4.492 4.492 0 001.058 1.625 4.5 4.5 0 001.623 1.058c.584.226 1.25.381 2.226.426.978.044 1.29.055 3.78.055 2.49 0 2.802-.01 3.78-.055.976-.045 1.643-.2 2.226-.426a4.487 4.487 0 001.623-1.058c.51-.51.823-1.022 1.058-1.624.226-.584.38-1.25.426-2.226.044-.978.056-1.29.056-3.78 0-2.49-.012-2.802-.056-3.78-.046-.976-.2-1.642-.426-2.225a4.5 4.5 0 00-1.058-1.624A4.48 4.48 0 0015.388.93C14.803.704 14.136.549 13.16.505 12.182.46 11.871.449 9.38.449h.003zm-.822 1.652h.822c2.448 0 2.738.008 3.705.052.894.041 1.38.19 1.702.316.428.166.733.365 1.054.686.32.32.52.626.686 1.054.125.323.275.808.316 1.702.044.966.053 1.257.053 3.704 0 2.446-.01 2.737-.053 3.703-.041.894-.19 1.38-.316 1.702a2.835 2.835 0 01-.686 1.053c-.321.321-.626.52-1.054.686-.322.126-.808.275-1.702.316-.966.044-1.257.053-3.705.053-2.448 0-2.738-.01-3.705-.053-.894-.041-1.379-.19-1.702-.316a2.839 2.839 0 01-1.054-.686 2.842 2.842 0 01-.687-1.054c-.125-.322-.275-.808-.315-1.701-.044-.967-.053-1.257-.053-3.706 0-2.448.009-2.737.053-3.703.04-.894.19-1.38.315-1.703a2.84 2.84 0 01.687-1.054c.32-.32.626-.52 1.054-.686.323-.126.808-.275 1.702-.316.846-.038 1.174-.05 2.883-.052v.003zm5.716 1.522a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2zM9.383 4.909a4.709 4.709 0 100 9.417 4.709 4.709 0 000-9.417zm0 1.653a3.056 3.056 0 110 6.112 3.056 3.056 0 010-6.112z" fill="#fff"/></symbol>
+		<symbol fill="none" viewBox="0 0 35 35" id="mail"><path d="M24.792 29.896H10.208c-4.375 0-7.291-2.188-7.291-7.292V12.396c0-5.105 2.916-7.292 7.291-7.292h14.584c4.375 0 7.291 2.188 7.291 7.292v10.208c0 5.104-2.916 7.292-7.291 7.292z" stroke="#FED460" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M24.792 13.125l-4.565 3.646c-1.502 1.196-3.967 1.196-5.469 0l-4.55-3.646" stroke="#FED460" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 70 70" id="pen"><path d="M62.62 55.417V14.583c0-5.833-2.916-8.75-8.75-8.75H42.205c-5.833 0-8.75 2.917-8.75 8.75v40.834c0 5.833 2.917 8.75 8.75 8.75h11.667c5.833 0 8.75-2.917 8.75-8.75zM33.454 17.5h14.584m-14.584 35h11.667M33.454 40.688l14.584.145M33.454 29.167h8.75M16.012 5.833c-4.754 0-8.633 3.88-8.633 8.604v37.8c0 1.313.554 3.296 1.225 4.434l2.392 3.967c2.742 4.579 7.262 4.579 10.004 0l2.392-3.967c.67-1.138 1.225-3.121 1.225-4.434v-37.8c0-4.725-3.88-8.604-8.605-8.604zm8.605 14.584H7.379" stroke="#745670" stroke-width="3" stroke-linecap="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 70 70" id="people"><path d="M52.5 20.883a1.775 1.775 0 00-.554 0 7.506 7.506 0 01-7.233-7.525 7.506 7.506 0 017.524-7.525 7.525 7.525 0 017.526 7.525c-.03 4.084-3.238 7.38-7.263 7.525zm-3.004 21.234c3.996.67 8.4-.03 11.491-2.1 4.113-2.742 4.113-7.234 0-9.975-3.12-2.071-7.583-2.771-11.579-2.071m-31.995-7.088c.174-.029.379-.029.554 0a7.506 7.506 0 007.233-7.525 7.506 7.506 0 00-7.525-7.525 7.525 7.525 0 00-7.525 7.525c.03 4.084 3.237 7.38 7.263 7.525zm3.004 21.234c-3.996.67-8.4-.03-11.492-2.1-4.112-2.742-4.112-7.234 0-9.975 3.12-2.071 7.583-2.771 11.58-2.071M35 42.67a1.837 1.837 0 00-.554 0 7.506 7.506 0 01-7.233-7.524 7.506 7.506 0 017.524-7.525 7.525 7.525 0 017.526 7.525c-.03 4.083-3.238 7.408-7.263 7.525zm-8.488 9.188c-4.112 2.742-4.112 7.234 0 9.975 4.667 3.121 12.309 3.121 16.975 0 4.113-2.741 4.113-7.233 0-9.975-4.637-3.091-12.308-3.091-16.975 0z" stroke="#745670" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 35 35" id="phone"><path d="M32.04 26.731c0 .525-.117 1.065-.365 1.59a6.02 6.02 0 01-.992 1.487c-.714.788-1.502 1.356-2.391 1.721a7.323 7.323 0 01-2.844.554c-1.488 0-3.077-.35-4.754-1.064-1.677-.715-3.354-1.677-5.017-2.888a41.945 41.945 0 01-4.783-4.083 41.442 41.442 0 01-4.069-4.769c-1.196-1.663-2.158-3.325-2.858-4.973-.7-1.662-1.05-3.252-1.05-4.769 0-.991.175-1.94.525-2.814.35-.89.904-1.707 1.677-2.436.933-.918 1.954-1.37 3.033-1.37.408 0 .817.087 1.181.262.38.175.715.438.977.817l3.384 4.768c.262.365.452.7.583 1.021.131.306.204.613.204.89 0 .35-.102.7-.306 1.035-.19.336-.467.686-.817 1.036l-1.108 1.152a.78.78 0 00-.233.583c0 .117.014.219.043.335.044.117.088.205.117.292.263.481.715 1.108 1.356 1.867a49.774 49.774 0 002.115 2.304 43.904 43.904 0 002.319 2.144c.758.641 1.385 1.079 1.88 1.341.074.03.161.073.263.117.117.044.234.058.365.058a.802.802 0 00.598-.247l1.108-1.094c.365-.365.715-.642 1.05-.817a1.945 1.945 0 011.036-.306c.277 0 .568.058.89.19.32.13.655.32 1.02.568l4.827 3.427c.38.263.642.569.802.934.146.364.233.729.233 1.137z" stroke="#FED460" stroke-width="2" stroke-miterlimit="10"/><path d="M26.98 13.125c0-.875-.686-2.217-1.707-3.31C24.34 8.807 23.1 8.02 21.875 8.02m10.208 5.105A10.2 10.2 0 0021.875 2.916" stroke="#FED460" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 67 67" id="quill"><g clip-path="url(#auclip0_1_6994)"><path d="M66.66 17.293a1.097 1.097 0 00-1.59 0c-3.92 3.708-7.147 4.152-10.513 1.244l1.09-.903c2.952-3.066 2.952-7.948 0-10.9-2.952-2.951-7.834-2.951-10.9.114l-.873 1.057-1.17-1.17c-3.065-2.952-7.947-2.952-10.899 0a7.646 7.646 0 00-2.27 5.45c0 2.043.794 3.973 2.27 5.449l2.242 2.153-16.023 19.375-3.817-3.817c-3.065-2.952-7.947-2.952-10.899 0a7.646 7.646 0 00-2.27 5.45c0 2.043.794 3.973 2.27 5.449l4.866 4.828-7.931 9.59c-.34.455-.34 1.022.113 1.477.227.227.454.34.795.34.227 0 .568-.114.681-.227l9.593-7.953 6.756 6.704c.227.227.454.34.795.34.227 0 .568-.113.795-.226a1.097 1.097 0 000-1.59l-6.642-6.641L27.464 41l3.433 3.54a7.396 7.396 0 005.222 2.158c2.157 0 4.201-.908 5.79-2.157 2.952-3.066 2.952-7.948 0-10.9l-2.58-2.477 13.479-11.176c1.986 1.806 4.059 2.755 6.132 2.755 2.497 0 5.109-1.25 7.72-3.86a1.098 1.098 0 000-1.59zm-33.266-1.249a5.407 5.407 0 01-1.59-3.86 5.41 5.41 0 011.59-3.86 5.414 5.414 0 017.72 0l1.32 1.32-6.95 8.406-2.09-2.006zM4.898 44.654a5.407 5.407 0 01-1.59-3.86c0-1.475.568-2.838 1.59-3.86a5.414 5.414 0 017.72 0l3.967 3.968-6.99 8.451-4.697-4.698zm4.768 8.175l.125-.151.026.025-.151.126zm1.541-1.865l32.829-39.718 2.812 2.811-1.079 1.08a1.097 1.097 0 000 1.588c.227.228.455.341.795.341s.568-.113.795-.34l3.746-3.747a1.097 1.097 0 000-1.59 1.097 1.097 0 00-1.589 0l-1.078 1.08-2.964-2.964.977-1.18a5.406 5.406 0 013.86-1.59c1.475 0 2.724.567 3.746 1.59a5.406 5.406 0 011.59 3.86c0 1.475-.568 2.838-1.476 3.746L11.528 51.285l-.32-.32zm29.113-15.62c2.043 2.158 2.043 5.564 0 7.608-2.044 1.703-5.563 2.157-7.72 0l-3.395-3.395 8.38-6.948 2.735 2.736z" fill="#745670"/></g><defs><clipPath id="auclip0_1_6994"><path fill="#fff" d="M0 0h67v67H0z"/></clipPath></defs></symbol>
+		<symbol fill="none" viewBox="0 0 72 52" id="quote"><path d="M17.465 52c-2.97 0-5.643-.544-8.02-1.63-2.257-1.209-4.04-2.84-5.346-4.893-1.188-1.811-2.198-4.106-3.03-6.885C.356 35.693 0 32.613 0 29.352c0-6.04 1.485-11.656 4.455-16.85C7.545 7.187 12.297 3.02 18.713 0l1.604 3.261c-3.208 1.45-6.06 3.624-8.555 6.523-2.495 2.778-4.099 5.737-4.812 8.878-.831 3.02-.95 5.919-.356 8.697 2.852-3.261 6.772-4.892 11.762-4.892 4.396 0 7.96 1.268 10.693 3.805 2.733 2.536 4.1 6.16 4.1 10.87 0 4.47-1.486 8.094-4.456 10.872C25.842 50.67 22.1 52 17.465 52zm38.852 0c-2.97 0-5.644-.544-8.02-1.63-2.257-1.209-4.04-2.84-5.346-4.893-1.189-1.811-2.199-4.106-3.03-6.885-.713-2.899-1.07-5.979-1.07-9.24 0-6.04 1.486-11.656 4.456-16.85C46.396 7.187 51.149 3.02 57.564 0l1.604 3.261c-3.207 1.45-6.059 3.624-8.554 6.523-2.495 2.778-4.1 5.737-4.812 8.878-.832 3.02-.95 5.919-.356 8.697 2.851-3.261 6.772-4.892 11.762-4.892 4.396 0 7.96 1.268 10.693 3.805C70.634 28.808 72 32.432 72 37.142c0 4.47-1.485 8.094-4.455 10.872C64.693 50.67 60.95 52 56.317 52z" fill="#E6B738"/></symbol>
+		<symbol fill="none" viewBox="0 0 70 70" id="rank"><path d="M25.288 40.833H11.667c-3.209 0-5.834 2.625-5.834 5.834v17.5h19.455V40.833z" stroke="#745670" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M38.88 29.167h-7.788c-3.209 0-5.834 2.625-5.834 5.833v29.167h19.454V35a5.832 5.832 0 00-5.833-5.833zm19.453 20.416h-13.62v14.584h19.454v-8.75c0-3.209-2.625-5.834-5.834-5.834z" stroke="#745670" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M36.517 6.038l1.545 3.091c.205.438.759.846 1.226.904l2.8.467c1.779.292 2.216 1.604.933 2.858l-2.188 2.188c-.379.379-.583 1.079-.466 1.575l.612 2.683c.496 2.13-.642 2.946-2.508 1.838l-2.625-1.546c-.467-.292-1.254-.292-1.721 0L31.5 21.642c-1.867 1.108-3.004.291-2.508-1.838l.612-2.683c.117-.496-.087-1.225-.466-1.575l-2.159-2.159c-1.283-1.283-.875-2.566.934-2.858l2.8-.466c.466-.088 1.02-.496 1.224-.905l1.546-3.091c.846-1.692 2.188-1.692 3.034-.03z" stroke="#745670" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 70 70" id="routing"><path d="M6.038 13.417c2.333-10.092 17.529-10.092 19.833 0 1.37 5.92-2.392 10.937-5.659 14.058-2.391 2.275-6.154 2.246-8.545 0-3.238-3.12-7-8.138-5.63-14.058zm37.916 35c2.334-10.092 17.617-10.092 19.95 0 1.371 5.92-2.392 10.937-5.687 14.058-2.392 2.275-6.184 2.246-8.575 0-3.296-3.12-7.059-8.138-5.688-14.058z" stroke="#745670" stroke-width="3"/><path d="M35 14.583h7.817c5.395 0 7.904 6.68 3.85 10.238L23.362 45.208c-4.054 3.53-1.545 10.209 3.821 10.209H35M16.002 16.042h.033m37.883 35h.034" stroke="#745670" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 70 70" id="size"><path d="M5.833 29.108V26.25c0-14.583 5.834-20.417 20.417-20.417h17.5c14.583 0 20.417 5.834 20.417 20.417v17.5c0 14.583-5.834 20.417-20.417 20.417h-2.917" stroke="#745670" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M37.917 32.083l14.612-14.641H40.833m11.697 0v11.695M32.083 47.104v7.875c0 6.563-2.625 9.188-9.187 9.188H15.02c-6.563 0-9.188-2.625-9.188-9.188v-7.875c0-6.562 2.625-9.187 9.188-9.187h7.875c6.562 0 9.187 2.625 9.187 9.187z" stroke="#745670" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 70 70" id="status-up"><path d="M20.067 52.938V46.9M35 52.938V40.861m14.933 12.077V34.796m0-17.733l-1.341 1.575a55.073 55.073 0 01-28.525 17.616" stroke="#745670" stroke-width="3" stroke-linecap="round"/><path d="M41.388 17.063h8.545v8.516" stroke="#745670" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M26.25 64.167h17.5c14.583 0 20.417-5.834 20.417-20.417v-17.5c0-14.583-5.834-20.417-20.417-20.417h-17.5c-14.583 0-20.417 5.834-20.417 20.417v17.5c0 14.583 5.834 20.417 20.417 20.417z" stroke="#745670" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 31 36" id="triangle"><path d="M.502 35.798V.937L30.383 17.69.502 35.798z" fill="#fff"/></symbol>
+		<symbol fill="none" viewBox="0 0 35 35" id="user"><path d="M17.5 17.5a7.292 7.292 0 100-14.584 7.292 7.292 0 000 14.584zm12.527 14.583c0-5.643-5.614-10.208-12.527-10.208-6.912 0-12.527 4.565-12.527 10.208" stroke="#FED460" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+		<symbol fill="none" viewBox="0 0 21 21" id="wats"><path d="M.91 10.244c0 1.739.457 3.437 1.324 4.933L.828 20.29l5.256-1.372a9.945 9.945 0 004.738 1.201h.004c5.465 0 9.913-4.427 9.915-9.867A9.786 9.786 0 0017.84 3.27 9.875 9.875 0 0010.826.376C5.361.376.913 4.803.911 10.244zm3.13 4.675l-.195-.31a8.152 8.152 0 01-1.26-4.365c.002-4.522 3.698-8.201 8.244-8.201 2.201 0 4.27.855 5.827 2.405a8.134 8.134 0 012.411 5.803c-.002 4.522-3.699 8.202-8.241 8.202h-.003a8.26 8.26 0 01-4.195-1.144l-.3-.177-3.12.814.833-3.027zm6.786 5.2z" fill="#fff"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8.128 6.462c-.2-.377-.41-.384-.599-.39-.155-.006-.332-.006-.51-.006-.177 0-.465.057-.709.283-.244.227-.93.774-.93 1.888 0 1.114.952 2.19 1.085 2.342.133.15 1.84 2.51 4.544 3.417 2.246.755 2.704.605 3.191.567.488-.038 1.574-.548 1.796-1.076.221-.529.221-.982.155-1.077-.067-.094-.244-.15-.51-.264-.266-.113-1.574-.661-1.817-.737-.244-.075-.422-.113-.599.114-.177.226-.687.736-.842.887-.155.152-.31.17-.576.057-.266-.113-1.123-.352-2.14-1.123a7.112 7.112 0 01-1.479-1.568c-.155-.227-.016-.35.117-.462.12-.102.266-.265.399-.397s.177-.226.266-.377c.088-.152.044-.284-.022-.397-.067-.113-.584-1.233-.82-1.68" fill="#fff"/><defs><linearGradient id="bcpaint0_linear_112_241" x1="10.785" y1="20.291" x2="10.785" y2=".377" gradientUnits="userSpaceOnUse"><stop stop-color="#F9F9F9"/><stop offset="1" stop-color="#fff"/></linearGradient></defs></symbol>
+		<symbol fill="none" viewBox="0 0 17 18" id="wb"><path d="M14.79 2.21C14.358 1.827 12.636.558 8.763.535c0 0-4.553-.271-6.773 1.767C.745 3.547.314 5.337.269 7.58c-.045 2.243-.113 6.433 3.942 7.589v1.744s-.023.702.43.838c.566.181.883-.362 1.427-.929a25.5 25.5 0 00.997-1.132c2.763.226 4.893-.295 5.142-.385.566-.182 3.715-.59 4.236-4.78.543-4.35-.227-7.09-1.654-8.313zm.475 7.974c-.43 3.511-2.99 3.738-3.466 3.874-.204.068-2.061.52-4.417.385 0 0-1.744 2.106-2.31 2.673a.347.347 0 01-.25.113c-.09-.023-.113-.136-.113-.294 0-.227.023-2.9.023-2.9-3.421-.951-3.217-4.53-3.194-6.41.045-1.88.385-3.398 1.427-4.44 1.88-1.7 5.753-1.45 5.753-1.45 3.262.023 4.825.997 5.188 1.336 1.178 1.042 1.79 3.512 1.359 7.113z" fill="#fff"/><path d="M10.35 7.489c-.046-.861-.476-1.314-1.314-1.36m2.446 1.722c.023-.792-.226-1.472-.702-1.993-.498-.544-1.178-.838-2.039-.906" stroke="#fff" stroke-width=".3" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.615 8.305c0-1.382-.43-2.47-1.246-3.262-.816-.793-1.835-1.201-3.058-1.201" stroke="#fff" stroke-width=".3" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.08 10.411s.318.023.476-.181l.318-.408c.158-.204.52-.34.906-.136.204.114.566.34.793.521.249.181.747.59.747.59.25.203.295.498.136.815a2.837 2.837 0 01-.68.815 1.377 1.377 0 01-.68.34h-.09a1.36 1.36 0 01-.294-.045c-.34-.09-.906-.34-1.88-.861a11.678 11.678 0 01-1.563-1.042 5.917 5.917 0 01-.703-.634l-.09-.091a8.45 8.45 0 01-.634-.702c-.34-.43-.703-.952-1.042-1.563-.521-.952-.77-1.518-.861-1.88a1.133 1.133 0 01-.046-.295v-.09c.023-.227.136-.453.34-.68.25-.272.521-.498.816-.68.317-.158.611-.113.815.136 0 0 .408.499.59.748.158.226.384.589.52.793.204.362.068.747-.113.906l-.408.317c-.204.158-.181.476-.181.476s.566 2.242 2.809 2.831z" fill="#fff"/></symbol>
+</svg>
+
+<!--
+====================================================================================================
+-->
+		
+		<header>
+			<h1>SVG <code>&lt;symbol&gt;</code> sprite preview</h1>
+			<p>This preview features two methods of using the generated sprite in conjunction with inline SVG. Please have a look at the HTML source for further details and be aware of the following constraints:</p>
+			<ul>
+				<li>Your browser has to <a href="http://caniuse.com/#feat=svg-html5" target="_blank">support inline SVG</a> for these techniques to work.</li>
+				<li>The embedded sprite (A) slightly differs from the generated external one. Please <a href="https://github.com/jkphl/svg-sprite/blob/master/docs/configuration.md#defs--symbol-mode" target="_blank">see the documentation</a> for details on how to create such an embeddable sprite.</li>
+				<li>Internet Explorer up to version 11 doesn't support external sprites for use with inline SVG. For IE 9-11, you may polyfill this functionality with <a href="https://github.com/jonathantneal/svg4everybody" target="_blank">SVG for Everybody</a>.</li>
+			</ul>
+		</header>
+		<section>
+
+<!--
+	
+A) Inline SVG with embedded sprite
+====================================================================================================
+These SVG images make use of fragment identifiers (IDs) and are extracted out of the inline sprite
+embedded above. They may be styled via CSS.
+
+-->
+
+			<h3>A) Inline SVG with embedded sprite</h3>
+			<ul>
+
+				<li title="arr_down">
+					<div class="icon-box">
+						
+						<!-- arr_down -->
+						<svg class="svg-arr_down-dims">
+							<use xlink:href="#arr_down"></use>
+						</svg>
+						
+					</div>
+					<h2>arr_down</h2>
+				</li>
+				<li title="arr_l">
+					<div class="icon-box">
+						
+						<!-- arr_l -->
+						<svg class="svg-arr_l-dims">
+							<use xlink:href="#arr_l"></use>
+						</svg>
+						
+					</div>
+					<h2>arr_l</h2>
+				</li>
+				<li title="arr_r">
+					<div class="icon-box">
+						
+						<!-- arr_r -->
+						<svg class="svg-arr_r-dims">
+							<use xlink:href="#arr_r"></use>
+						</svg>
+						
+					</div>
+					<h2>arr_r</h2>
+				</li>
+				<li title="close">
+					<div class="icon-box">
+						
+						<!-- close -->
+						<svg class="svg-close-dims">
+							<use xlink:href="#close"></use>
+						</svg>
+						
+					</div>
+					<h2>close</h2>
+				</li>
+				<li title="close_plum">
+					<div class="icon-box">
+						
+						<!-- close_plum -->
+						<svg class="svg-close_plum-dims">
+							<use xlink:href="#close_plum"></use>
+						</svg>
+						
+					</div>
+					<h2>close_plum</h2>
+				</li>
+				<li title="earth">
+					<div class="icon-box">
+						
+						<!-- earth -->
+						<svg class="svg-earth-dims">
+							<use xlink:href="#earth"></use>
+						</svg>
+						
+					</div>
+					<h2>earth</h2>
+				</li>
+				<li title="emoji-happy">
+					<div class="icon-box">
+						
+						<!-- emoji-happy -->
+						<svg class="svg-emoji-happy-dims">
+							<use xlink:href="#emoji-happy"></use>
+						</svg>
+						
+					</div>
+					<h2>emoji-happy</h2>
+				</li>
+				<li title="fr_1">
+					<div class="icon-box">
+						
+						<!-- fr_1 -->
+						<svg class="svg-fr_1-dims">
+							<use xlink:href="#fr_1"></use>
+						</svg>
+						
+					</div>
+					<h2>fr_1</h2>
+				</li>
+				<li title="fr_2">
+					<div class="icon-box">
+						
+						<!-- fr_2 -->
+						<svg class="svg-fr_2-dims">
+							<use xlink:href="#fr_2"></use>
+						</svg>
+						
+					</div>
+					<h2>fr_2</h2>
+				</li>
+				<li title="fr_3">
+					<div class="icon-box">
+						
+						<!-- fr_3 -->
+						<svg class="svg-fr_3-dims">
+							<use xlink:href="#fr_3"></use>
+						</svg>
+						
+					</div>
+					<h2>fr_3</h2>
+				</li>
+				<li title="fr_4">
+					<div class="icon-box">
+						
+						<!-- fr_4 -->
+						<svg class="svg-fr_4-dims">
+							<use xlink:href="#fr_4"></use>
+						</svg>
+						
+					</div>
+					<h2>fr_4</h2>
+				</li>
+				<li title="fr_5">
+					<div class="icon-box">
+						
+						<!-- fr_5 -->
+						<svg class="svg-fr_5-dims">
+							<use xlink:href="#fr_5"></use>
+						</svg>
+						
+					</div>
+					<h2>fr_5</h2>
+				</li>
+				<li title="fr_6">
+					<div class="icon-box">
+						
+						<!-- fr_6 -->
+						<svg class="svg-fr_6-dims">
+							<use xlink:href="#fr_6"></use>
+						</svg>
+						
+					</div>
+					<h2>fr_6</h2>
+				</li>
+				<li title="fr_7">
+					<div class="icon-box">
+						
+						<!-- fr_7 -->
+						<svg class="svg-fr_7-dims">
+							<use xlink:href="#fr_7"></use>
+						</svg>
+						
+					</div>
+					<h2>fr_7</h2>
+				</li>
+				<li title="geo">
+					<div class="icon-box">
+						
+						<!-- geo -->
+						<svg class="svg-geo-dims">
+							<use xlink:href="#geo"></use>
+						</svg>
+						
+					</div>
+					<h2>geo</h2>
+				</li>
+				<li title="ig">
+					<div class="icon-box">
+						
+						<!-- ig -->
+						<svg class="svg-ig-dims">
+							<use xlink:href="#ig"></use>
+						</svg>
+						
+					</div>
+					<h2>ig</h2>
+				</li>
+				<li title="mail">
+					<div class="icon-box">
+						
+						<!-- mail -->
+						<svg class="svg-mail-dims">
+							<use xlink:href="#mail"></use>
+						</svg>
+						
+					</div>
+					<h2>mail</h2>
+				</li>
+				<li title="pen">
+					<div class="icon-box">
+						
+						<!-- pen -->
+						<svg class="svg-pen-dims">
+							<use xlink:href="#pen"></use>
+						</svg>
+						
+					</div>
+					<h2>pen</h2>
+				</li>
+				<li title="people">
+					<div class="icon-box">
+						
+						<!-- people -->
+						<svg class="svg-people-dims">
+							<use xlink:href="#people"></use>
+						</svg>
+						
+					</div>
+					<h2>people</h2>
+				</li>
+				<li title="phone">
+					<div class="icon-box">
+						
+						<!-- phone -->
+						<svg class="svg-phone-dims">
+							<use xlink:href="#phone"></use>
+						</svg>
+						
+					</div>
+					<h2>phone</h2>
+				</li>
+				<li title="quill">
+					<div class="icon-box">
+						
+						<!-- quill -->
+						<svg class="svg-quill-dims">
+							<use xlink:href="#quill"></use>
+						</svg>
+						
+					</div>
+					<h2>quill</h2>
+				</li>
+				<li title="quote">
+					<div class="icon-box">
+						
+						<!-- quote -->
+						<svg class="svg-quote-dims">
+							<use xlink:href="#quote"></use>
+						</svg>
+						
+					</div>
+					<h2>quote</h2>
+				</li>
+				<li title="rank">
+					<div class="icon-box">
+						
+						<!-- rank -->
+						<svg class="svg-rank-dims">
+							<use xlink:href="#rank"></use>
+						</svg>
+						
+					</div>
+					<h2>rank</h2>
+				</li>
+				<li title="routing">
+					<div class="icon-box">
+						
+						<!-- routing -->
+						<svg class="svg-routing-dims">
+							<use xlink:href="#routing"></use>
+						</svg>
+						
+					</div>
+					<h2>routing</h2>
+				</li>
+				<li title="size">
+					<div class="icon-box">
+						
+						<!-- size -->
+						<svg class="svg-size-dims">
+							<use xlink:href="#size"></use>
+						</svg>
+						
+					</div>
+					<h2>size</h2>
+				</li>
+				<li title="status-up">
+					<div class="icon-box">
+						
+						<!-- status-up -->
+						<svg class="svg-status-up-dims">
+							<use xlink:href="#status-up"></use>
+						</svg>
+						
+					</div>
+					<h2>status-up</h2>
+				</li>
+				<li title="triangle">
+					<div class="icon-box">
+						
+						<!-- triangle -->
+						<svg class="svg-triangle-dims">
+							<use xlink:href="#triangle"></use>
+						</svg>
+						
+					</div>
+					<h2>triangle</h2>
+				</li>
+				<li title="user">
+					<div class="icon-box">
+						
+						<!-- user -->
+						<svg class="svg-user-dims">
+							<use xlink:href="#user"></use>
+						</svg>
+						
+					</div>
+					<h2>user</h2>
+				</li>
+				<li title="wats">
+					<div class="icon-box">
+						
+						<!-- wats -->
+						<svg class="svg-wats-dims">
+							<use xlink:href="#wats"></use>
+						</svg>
+						
+					</div>
+					<h2>wats</h2>
+				</li>
+				<li title="wb">
+					<div class="icon-box">
+						
+						<!-- wb -->
+						<svg class="svg-wb-dims">
+							<use xlink:href="#wb"></use>
+						</svg>
+						
+					</div>
+					<h2>wb</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<section>
+
+<!--
+	
+B) Inline SVG with external sprite (IE 9-11 with polyfill only)
+====================================================================================================
+These SVG images make use of an URL + fragment identifiers (IDs) and refer to the regular external
+SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
+
+-->
+
+			<h3>B) Inline SVG with external sprite (IE 9-11 with polyfill only)</h3>
+			<ul>
+				
+				<li title="arr_down">
+					<div class="icon-box">
+						
+						<!-- arr_down -->
+						<svg class="svg-arr_down-dims">
+							<use xlink:href="../sprite.svg#arr_down"></use>
+						</svg>
+						
+					</div>
+					<h2>arr_down</h2>
+				</li>
+				<li title="arr_l">
+					<div class="icon-box">
+						
+						<!-- arr_l -->
+						<svg class="svg-arr_l-dims">
+							<use xlink:href="../sprite.svg#arr_l"></use>
+						</svg>
+						
+					</div>
+					<h2>arr_l</h2>
+				</li>
+				<li title="arr_r">
+					<div class="icon-box">
+						
+						<!-- arr_r -->
+						<svg class="svg-arr_r-dims">
+							<use xlink:href="../sprite.svg#arr_r"></use>
+						</svg>
+						
+					</div>
+					<h2>arr_r</h2>
+				</li>
+				<li title="close">
+					<div class="icon-box">
+						
+						<!-- close -->
+						<svg class="svg-close-dims">
+							<use xlink:href="../sprite.svg#close"></use>
+						</svg>
+						
+					</div>
+					<h2>close</h2>
+				</li>
+				<li title="close_plum">
+					<div class="icon-box">
+						
+						<!-- close_plum -->
+						<svg class="svg-close_plum-dims">
+							<use xlink:href="../sprite.svg#close_plum"></use>
+						</svg>
+						
+					</div>
+					<h2>close_plum</h2>
+				</li>
+				<li title="earth">
+					<div class="icon-box">
+						
+						<!-- earth -->
+						<svg class="svg-earth-dims">
+							<use xlink:href="../sprite.svg#earth"></use>
+						</svg>
+						
+					</div>
+					<h2>earth</h2>
+				</li>
+				<li title="emoji-happy">
+					<div class="icon-box">
+						
+						<!-- emoji-happy -->
+						<svg class="svg-emoji-happy-dims">
+							<use xlink:href="../sprite.svg#emoji-happy"></use>
+						</svg>
+						
+					</div>
+					<h2>emoji-happy</h2>
+				</li>
+				<li title="fr_1">
+					<div class="icon-box">
+						
+						<!-- fr_1 -->
+						<svg class="svg-fr_1-dims">
+							<use xlink:href="../sprite.svg#fr_1"></use>
+						</svg>
+						
+					</div>
+					<h2>fr_1</h2>
+				</li>
+				<li title="fr_2">
+					<div class="icon-box">
+						
+						<!-- fr_2 -->
+						<svg class="svg-fr_2-dims">
+							<use xlink:href="../sprite.svg#fr_2"></use>
+						</svg>
+						
+					</div>
+					<h2>fr_2</h2>
+				</li>
+				<li title="fr_3">
+					<div class="icon-box">
+						
+						<!-- fr_3 -->
+						<svg class="svg-fr_3-dims">
+							<use xlink:href="../sprite.svg#fr_3"></use>
+						</svg>
+						
+					</div>
+					<h2>fr_3</h2>
+				</li>
+				<li title="fr_4">
+					<div class="icon-box">
+						
+						<!-- fr_4 -->
+						<svg class="svg-fr_4-dims">
+							<use xlink:href="../sprite.svg#fr_4"></use>
+						</svg>
+						
+					</div>
+					<h2>fr_4</h2>
+				</li>
+				<li title="fr_5">
+					<div class="icon-box">
+						
+						<!-- fr_5 -->
+						<svg class="svg-fr_5-dims">
+							<use xlink:href="../sprite.svg#fr_5"></use>
+						</svg>
+						
+					</div>
+					<h2>fr_5</h2>
+				</li>
+				<li title="fr_6">
+					<div class="icon-box">
+						
+						<!-- fr_6 -->
+						<svg class="svg-fr_6-dims">
+							<use xlink:href="../sprite.svg#fr_6"></use>
+						</svg>
+						
+					</div>
+					<h2>fr_6</h2>
+				</li>
+				<li title="fr_7">
+					<div class="icon-box">
+						
+						<!-- fr_7 -->
+						<svg class="svg-fr_7-dims">
+							<use xlink:href="../sprite.svg#fr_7"></use>
+						</svg>
+						
+					</div>
+					<h2>fr_7</h2>
+				</li>
+				<li title="geo">
+					<div class="icon-box">
+						
+						<!-- geo -->
+						<svg class="svg-geo-dims">
+							<use xlink:href="../sprite.svg#geo"></use>
+						</svg>
+						
+					</div>
+					<h2>geo</h2>
+				</li>
+				<li title="ig">
+					<div class="icon-box">
+						
+						<!-- ig -->
+						<svg class="svg-ig-dims">
+							<use xlink:href="../sprite.svg#ig"></use>
+						</svg>
+						
+					</div>
+					<h2>ig</h2>
+				</li>
+				<li title="mail">
+					<div class="icon-box">
+						
+						<!-- mail -->
+						<svg class="svg-mail-dims">
+							<use xlink:href="../sprite.svg#mail"></use>
+						</svg>
+						
+					</div>
+					<h2>mail</h2>
+				</li>
+				<li title="pen">
+					<div class="icon-box">
+						
+						<!-- pen -->
+						<svg class="svg-pen-dims">
+							<use xlink:href="../sprite.svg#pen"></use>
+						</svg>
+						
+					</div>
+					<h2>pen</h2>
+				</li>
+				<li title="people">
+					<div class="icon-box">
+						
+						<!-- people -->
+						<svg class="svg-people-dims">
+							<use xlink:href="../sprite.svg#people"></use>
+						</svg>
+						
+					</div>
+					<h2>people</h2>
+				</li>
+				<li title="phone">
+					<div class="icon-box">
+						
+						<!-- phone -->
+						<svg class="svg-phone-dims">
+							<use xlink:href="../sprite.svg#phone"></use>
+						</svg>
+						
+					</div>
+					<h2>phone</h2>
+				</li>
+				<li title="quill">
+					<div class="icon-box">
+						
+						<!-- quill -->
+						<svg class="svg-quill-dims">
+							<use xlink:href="../sprite.svg#quill"></use>
+						</svg>
+						
+					</div>
+					<h2>quill</h2>
+				</li>
+				<li title="quote">
+					<div class="icon-box">
+						
+						<!-- quote -->
+						<svg class="svg-quote-dims">
+							<use xlink:href="../sprite.svg#quote"></use>
+						</svg>
+						
+					</div>
+					<h2>quote</h2>
+				</li>
+				<li title="rank">
+					<div class="icon-box">
+						
+						<!-- rank -->
+						<svg class="svg-rank-dims">
+							<use xlink:href="../sprite.svg#rank"></use>
+						</svg>
+						
+					</div>
+					<h2>rank</h2>
+				</li>
+				<li title="routing">
+					<div class="icon-box">
+						
+						<!-- routing -->
+						<svg class="svg-routing-dims">
+							<use xlink:href="../sprite.svg#routing"></use>
+						</svg>
+						
+					</div>
+					<h2>routing</h2>
+				</li>
+				<li title="size">
+					<div class="icon-box">
+						
+						<!-- size -->
+						<svg class="svg-size-dims">
+							<use xlink:href="../sprite.svg#size"></use>
+						</svg>
+						
+					</div>
+					<h2>size</h2>
+				</li>
+				<li title="status-up">
+					<div class="icon-box">
+						
+						<!-- status-up -->
+						<svg class="svg-status-up-dims">
+							<use xlink:href="../sprite.svg#status-up"></use>
+						</svg>
+						
+					</div>
+					<h2>status-up</h2>
+				</li>
+				<li title="triangle">
+					<div class="icon-box">
+						
+						<!-- triangle -->
+						<svg class="svg-triangle-dims">
+							<use xlink:href="../sprite.svg#triangle"></use>
+						</svg>
+						
+					</div>
+					<h2>triangle</h2>
+				</li>
+				<li title="user">
+					<div class="icon-box">
+						
+						<!-- user -->
+						<svg class="svg-user-dims">
+							<use xlink:href="../sprite.svg#user"></use>
+						</svg>
+						
+					</div>
+					<h2>user</h2>
+				</li>
+				<li title="wats">
+					<div class="icon-box">
+						
+						<!-- wats -->
+						<svg class="svg-wats-dims">
+							<use xlink:href="../sprite.svg#wats"></use>
+						</svg>
+						
+					</div>
+					<h2>wats</h2>
+				</li>
+				<li title="wb">
+					<div class="icon-box">
+						
+						<!-- wb -->
+						<svg class="svg-wb-dims">
+							<use xlink:href="../sprite.svg#wb"></use>
+						</svg>
+						
+					</div>
+					<h2>wb</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Mon, 21 Mar 2022 08:57:18 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>
