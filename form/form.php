@@ -11,8 +11,8 @@ $mail->CharSet = 'UTF-8';
 $mail->setLanguage('ru', 'PHPMailer/language/');
 $mail->IsHTML(true);
 
-$mail->setFrom('pesochnicamebel@yandex.ru', 'Заявка с сайта');
-$mail->AddAddress('pesochnicamebel@yandex.ru');
+$mail->setFrom('', 'Заявка с сайта');
+$mail->AddAddress('');
 
 
 $mail->Subject = 'Заявка с сайта';
